@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript_Classes</title>
+  </head>
+  <body>
+    <!-- Javascript classes are templates of javascript objects -->
+    <!-- Js class are not objects ,Js classes are templates of Js objects-->
+    <script>
+      class Car {
+        constructor(name, year) {
+          this.name = name;
+          this.year = year;
+        }
+        // define and using class methods
+        age() {
+          const date = new Date();
+          return date.getFullYear() - this.year;
+        }
+      }
+      const mycar1 = new Car("alto", 2021);
+      const mycar2 = new Car("honda", 2023);
+      console.log(mycar1);
+      console.log(mycar1.age());
+    </script>
+    <!--To create a class inheritance, use the extends keyword.-->
+    <script>
+      class NewCar {
+        constructor(brand) {
+          this.brandname = brand;
+        }
+        present() {
+          return ` I like ${this.brandname}`;
+        }
+      }
+      class Model extends NewCar {
+        constructor(brand, mod) {
+          super(brand);
+          this.model = mod;
+        }
+        show() {
+          return this.present() + ",  and it is a " + this.model;
+        }
+      }
+      const myCar = new Model("Ford", "Mustang");
+
+      console.log(myCar.show());
+    </script>
+    <p id="demo">Get method </p>
+    <script>
+      class bike {
+  constructor(brands) {
+    this.bikename = brands;
+  }
+  get cnam() {
+    return this.bikename;
+  }
+  set cnam(x) {
+    this.bikename = x;
+  }
+}
+
+const mybike = new bike("Ford");
+
+document.getElementById("demo").innerHTML = mybike.cnam;
+    </script>
+    <p>Unlike functions, and other JavaScript declarations, class declarations are not hoisted.
+
+    </p> 
+    <p id="demo1"></p>
+<script>
+    class Cars {
+  constructor(names) {
+    this.name = names;
+  }
+  static hello() {
+    return "Hello!!";
+  }
+}
+
+const myCars = new Cars("Ford");
+
+//You can call 'hello()' on the Car Class:
+document.getElementById("demo1").innerHTML = Cars.hello();
+</script>
+<p>If you want to use the myCar object inside the static method, you can send it as a parameter:
+
+</p>
+  </body>
+</html>
